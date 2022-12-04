@@ -1,2 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Island+Moments&family=Nunito+Sans:wght@300;600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+@import "normalize";
 
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+header {
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+
+  img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .tilt {
+    transform: rotate(310deg);
+  }
+
+  h1 {
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  div {
+    align-items: center;
+    column-gap: 10px;
+  }
+}
