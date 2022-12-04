@@ -37,3 +37,25 @@ header {
     column-gap: 10px;
   }
 }
+
+main {
+    .main_input,.main_select {
+        padding: 10px;
+        background-color: transparent;
+        // border
+    }
+
+  .input {
+    justify-content: space-between;
+  }
+  
+  .main_input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .main_select {
+    width: 100%;
+    max-width: 200px;
+  }
+}
