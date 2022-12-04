@@ -58,4 +58,24 @@ main {
     width: 100%;
     max-width: 200px;
   }
+
+  .card {
+    border: 1px solid black;
+    width: 250px;
+
+    img {
+        max-width: 100%;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .card-info {
+        padding-left: 10px;
+        padding-right: 10px;
+        
+    }
+  }
+
 }
