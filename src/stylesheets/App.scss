@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 @import "normalize";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Nunito Sans", sans-serif;
   font-size: 12px;
@@ -39,16 +45,19 @@ header {
 }
 
 main {
-    .main_input,.main_select {
-        padding: 10px;
-        background-color: transparent;
-        // border
-    }
+  .main_input,
+  .main_select {
+    padding: 10px;
+    background-color: transparent;
+    // border
+  }
 
   .input {
     justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 25px;
   }
-  
+
   .main_input {
     width: 100%;
     max-width: 300px;
@@ -64,18 +73,25 @@ main {
     width: 250px;
 
     img {
-        max-width: 100%;
+      max-width: 100%;
     }
 
     p {
-        font-size: 14px;
+      font-size: 14px;
     }
 
     .card-info {
-        padding-left: 10px;
-        padding-right: 10px;
-        
+      padding-left: 10px;
+      padding-right: 10px;
     }
   }
 
+  .country-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: 20px;
+    row-gap: 20px;
+    flex: 1 1 200px;
+  }
 }
