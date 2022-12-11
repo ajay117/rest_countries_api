@@ -18,13 +18,8 @@ function Main() {
   const handleChange = (e) => {
     if (e.target.name === "region") {
       setRegion(e.target.value);
-      if (name) {
-        let filteredData = data.filter((obj) => {
-          return obj.name.common.toLowerCase() === name.toLowerCase();
-        });
-        setFilteredByInputData(filteredData);
-      }
-      // setName("");
+      setName("");
+      setFilteredByInputData([]);
     } else if (e.target.name === "country") {
       let filteredData = data.filter((obj) => {
         return obj.name.common.toLowerCase() === e.target.value.toLowerCase();
@@ -56,7 +51,6 @@ function Main() {
         }
       );
   }, [region]);
-  console.log(filteredByInputData);
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
