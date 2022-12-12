@@ -4,6 +4,7 @@ import Input from "./Input";
 import Select from "./Select";
 import data from "../../data";
 import Container from "react-bootstrap/Container";
+import { Button } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState, useEffect } from "react";
@@ -69,7 +70,7 @@ function Main() {
     countrydata = data.map((obj, i) => {
       if (i < index) {
         return (
-          <Col className="mb-3" md={6} lg={4} sm={12}>
+          <Col className="mb-3" md={4} lg={3} sm={6} >
             <CountryCard key={i} data={obj} />
           </Col>
         );
@@ -89,7 +90,13 @@ function Main() {
         <Row>{countrydata}</Row>
         {/* </section> */}
       </Container>
-      <button onClick={handleClick}>See More</button>
+      <div className="d-grid gap-2 mx-auto mt-4" style={{"max-width": "1000px"}}>
+        <Button onClick={handleClick} variant="primary" size="lg">
+          See More
+        </Button>
+      </div>
+
+      {/* <button onClick={handleClick}>See More</button> */}
     </main>
   );
 }
