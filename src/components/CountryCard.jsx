@@ -3,13 +3,19 @@ import { Card } from "react-bootstrap";
 
 function CountryCard({ data }) {
   return (
-    <Card className="card" style={{ width: "18rem" }}>
+    <Card className="card">
       <Card.Img variant="top" src={data.flags.png} />
       <Card.Body className="px-2 pt-2 pb-1">
         <Card.Title className="card-title">{data.name.common}</Card.Title>
-        <Card.Text className="card-text"><strong>Population</strong>: {data.population}</Card.Text>
-        <Card.Text className="card-text"><strong>Region</strong>: {data.region}</Card.Text>
-        <Card.Text className="card-text"><strong>Capital</strong>: {data.capital}</Card.Text>
+        <Card.Text className="card-text">
+          <strong>Population</strong>: {data.population}
+        </Card.Text>
+        <Card.Text className="card-text">
+          <strong>Region</strong>: {data.region}
+        </Card.Text>
+        <Card.Text className="card-text">
+          <strong>Capital</strong>: {data.capital}
+        </Card.Text>
       </Card.Body>
     </Card>
   );

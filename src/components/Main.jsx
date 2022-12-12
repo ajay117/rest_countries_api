@@ -3,6 +3,9 @@ import CountryCard from "./CountryCard";
 import Input from "./Input";
 import Select from "./Select";
 import data from "../../data";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { useState, useEffect } from "react";
 
 function Main() {
@@ -65,17 +68,27 @@ function Main() {
   } else {
     countrydata = data.map((obj, i) => {
       if (i < index) {
-        return <CountryCard key={i} data={obj} />;
+        return (
+          <Col className="mb-3" md={6} lg={4} sm={12}>
+            <CountryCard key={i} data={obj} />
+          </Col>
+        );
       }
     });
   }
   return (
     <main className="main">
-      <div className="flex input">
-        <Input name={name} handleChange={handleChange} />
-        <Select handleChange={handleChange} />
-      </div>
-      <section className="country-info">{countrydata}</section>
+      <Container fluid>
+        <div className="flex input">
+          <Input name={name} handleChange={handleChange} />
+          <Select handleChange={handleChange} />
+        </div>
+      </Container>
+      <Container fluid>
+        {/* <section className="country-info"> */}
+        <Row>{countrydata}</Row>
+        {/* </section> */}
+      </Container>
       <button onClick={handleClick}>See More</button>
     </main>
   );
