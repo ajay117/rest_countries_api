@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 
 function CountryCard({ data }) {
   return (
-    <Card className="card">
+    <Card className="card px-0">
       <Card.Img variant="top" src={data.flags.png} />
       <Card.Body className="px-2 pt-2 pb-1">
         <Card.Title className="card-title">{data.name.common}</Card.Title>
