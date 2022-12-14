@@ -63,14 +63,18 @@ function Main() {
   if (filteredByInputData) {
     countrydata = filteredByInputData.map((obj, i) => {
       if (i < index) {
-        return <CountryCard key={i} data={obj} />;
+        return (
+          <Col className="mb-3" md={4} lg={3} sm={6}>
+            <CountryCard key={i} data={obj} />
+          </Col>
+        );
       }
     });
   } else {
     countrydata = data.map((obj, i) => {
       if (i < index) {
         return (
-          <Col className="mb-3" md={4} lg={3} sm={6} >
+          <Col className="mb-3 " md={4} lg={3} sm={6}>
             <CountryCard key={i} data={obj} />
           </Col>
         );
@@ -90,7 +94,7 @@ function Main() {
         <Row>{countrydata}</Row>
         {/* </section> */}
       </Container>
-      <div className="d-grid gap-2 mx-auto mt-4" style={{"max-width": "1000px"}}>
+      <div className="d-grid gap-2 mx-auto mt-4" style={{ maxWidth: "1000px" }}>
         <Button onClick={handleClick} variant="primary" size="lg">
           See More
         </Button>
