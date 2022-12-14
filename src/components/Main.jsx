@@ -23,13 +23,19 @@ function Main() {
   const handleChange = (e) => {
     if (e.target.name === "region") {
       setRegion(e.target.value);
+
       setName("");
-      setFilteredByInputData([]);
+      // setFilteredByInputData([]);
     } else if (e.target.name === "country") {
-      let filteredData = data.filter((obj) => {
-        return obj.name.common.toLowerCase() === e.target.value.toLowerCase();
+      let filteredData;
+      filteredData = data.filter((obj) => {
+        return obj.name.common
+          .toLowerCase()
+          .startsWith(e.target.value.toLowerCase());
       });
+
       setFilteredByInputData(filteredData);
+      setRegion("");
       setName(e.target.value);
     }
     setIndex(4);
@@ -48,7 +54,12 @@ function Main() {
       .then(
         (result) => {
           setIsLoaded(true);
-          setData(result);
+          if (region) {
+            setFilteredByInputData(result);
+          } else {
+            setData(result);
+            // setFilteredByInputData(result);
+          }
         },
         (error) => {
           setIsLoaded(true);
@@ -78,7 +89,7 @@ function Main() {
           <Col className="mb-3 " md={4} lg={3} sm={6}>
             <Animate
               play={data}
-              duration={1}
+              duration={2}
               start={{
                 opacity: "0.1",
               }}
@@ -96,17 +107,21 @@ function Main() {
       <Container fluid>
         <div className="flex input">
           <Input name={name} handleChange={handleChange} />
-          <Select handleChange={handleChange} />
+          <Select region={region} handleChange={handleChange} />
         </div>
       </Container>
       <Container fluid>
         <Row>{countrydata}</Row>
+
+        <div
+          className="d-grid gap-2 mx-auto mt-4"
+          style={{ maxWidth: "1000px" }}
+        >
+          <Button onClick={handleClick} variant="primary" size="lg">
+            See More
+          </Button>
+        </div>
       </Container>
-      <div className="d-grid gap-2 mx-auto mt-4" style={{ maxWidth: "1000px" }}>
-        <Button onClick={handleClick} variant="primary" size="lg">
-          See More
-        </Button>
-      </div>
 
       {/* <button onClick={handleClick}>See More</button> */}
     </main>
