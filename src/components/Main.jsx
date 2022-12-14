@@ -8,12 +8,13 @@ import { Button } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState, useEffect } from "react";
+import { Animate } from "react-simple-animate";
 
 function Main() {
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
   const [region, setRegion] = useState("");
-  const [index, setIndex] = useState(5);
+  const [index, setIndex] = useState(4);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   let [filteredByInputData, setFilteredByInputData] = useState(null);
@@ -31,11 +32,11 @@ function Main() {
       setFilteredByInputData(filteredData);
       setName(e.target.value);
     }
-    setIndex(5);
+    setIndex(4);
   };
 
   const handleClick = () => {
-    setIndex(index + 5);
+    setIndex(index + 4);
   };
 
   useEffect(() => {
@@ -75,7 +76,16 @@ function Main() {
       if (i < index) {
         return (
           <Col className="mb-3 " md={4} lg={3} sm={6}>
-            <CountryCard key={i} data={obj} />
+            <Animate
+              play={data}
+              duration={1}
+              start={{
+                opacity: "0.1",
+              }}
+              end={{ opacity: "1" }}
+            >
+              <CountryCard key={i} data={obj} />
+            </Animate>
           </Col>
         );
       }
@@ -90,9 +100,7 @@ function Main() {
         </div>
       </Container>
       <Container fluid>
-        {/* <section className="country-info"> */}
         <Row>{countrydata}</Row>
-        {/* </section> */}
       </Container>
       <div className="d-grid gap-2 mx-auto mt-4" style={{ maxWidth: "1000px" }}>
         <Button onClick={handleClick} variant="primary" size="lg">
