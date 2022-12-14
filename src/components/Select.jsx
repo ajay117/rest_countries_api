@@ -1,8 +1,13 @@
 import React from "react";
 
-function Select({ handleChange }) {
+function Select({ handleChange, region }) {
   return (
-    <select onChange={handleChange} className="main_select" name="region">
+    <select
+      onChange={handleChange}
+      value={region}
+      className="main_select"
+      name="region"
+    >
       <option value="">Filter by region</option>
       <option value="africa">Africa</option>
       <option value="america">America</option>
