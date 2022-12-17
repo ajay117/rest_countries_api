@@ -111,16 +111,27 @@ function Main() {
         </div>
       </Container>
       <Container fluid className="mt-4">
-        <Row>{countrydata}</Row>
-
-        <div
-          className="d-grid gap-2 mx-auto mt-4"
-          style={{ maxWidth: "1000px" }}
-        >
-          <Button onClick={handleClick} variant="primary" size="lg">
-            See More
-          </Button>
-        </div>
+        <Row>
+          {countrydata.length < 1 ? (
+            <div class="alert alert-warning" role="alert">
+              <p className="text-center">
+                Sorry! No country found. Please check your input.
+              </p>
+            </div>
+          ) : (
+            countrydata
+          )}
+        </Row>
+        {countrydata.length < 1 ? null : (
+          <div
+            className="d-grid gap-2 mx-auto mt-4"
+            style={{ maxWidth: "1000px" }}
+          >
+            <Button onClick={handleClick} variant="primary" size="lg">
+              See More
+            </Button>
+          </div>
+        )}
       </Container>
 
       {/* <button onClick={handleClick}>See More</button> */}
