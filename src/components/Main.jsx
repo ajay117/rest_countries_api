@@ -18,7 +18,7 @@ function Main() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   let [filteredByInputData, setFilteredByInputData] = useState(null);
-  let countrydata;
+  let countryData;
 
   const handleChange = (e) => {
     if (e.target.name === "region") {
@@ -42,7 +42,11 @@ function Main() {
   };
 
   const handleClick = () => {
-    setIndex(index + 4);
+    if (index >= filteredByInputData.length) {
+      return;
+    } else {
+      setIndex(index + 4);
+    }
   };
 
   useEffect(() => {
@@ -73,7 +77,7 @@ function Main() {
     return <div>Loading...</div>;
   }
   if (filteredByInputData) {
-    countrydata = filteredByInputData.map((obj, i) => {
+    countryData = filteredByInputData.map((obj, i) => {
       if (i < index) {
         return (
           <Col className="mb-3" md={4} lg={3} sm={6}>
@@ -83,7 +87,7 @@ function Main() {
       }
     });
   } else {
-    countrydata = data.map((obj, i) => {
+    countryData = data.map((obj, i) => {
       if (i < index) {
         return (
           <Col className="mb-3 " md={4} lg={3} sm={6}>
@@ -112,17 +116,19 @@ function Main() {
       </Container>
       <Container fluid className="mt-4">
         <Row>
-          {countrydata.length < 1 ? (
-            <div class="alert alert-warning" role="alert">
+          {countryData.length < 1 ? (
+            <div className="alert alert-warning" role="alert">
               <p className="text-center">
                 Sorry! No country found. Please check your input.
               </p>
             </div>
           ) : (
-            countrydata
+            countryData
           )}
         </Row>
-        {countrydata.length < 1 ? null : (
+        {countryData.length < 1 ||
+        index >=
+          (filteredByInputData ? filteredByInputData.length - 1 : 1) ? null : (
           <div
             className="d-grid gap-2 mx-auto mt-4"
             style={{ maxWidth: "1000px" }}
