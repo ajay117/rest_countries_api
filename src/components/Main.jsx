@@ -9,8 +9,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState, useEffect } from "react";
 import { Animate } from "react-simple-animate";
+import CountryDetails from "./CountryDetails";
 
-function Main() {
+function Main({handleClickForDetails}) {
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
   const [region, setRegion] = useState("");
@@ -18,6 +19,7 @@ function Main() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   let [filteredByInputData, setFilteredByInputData] = useState(null);
+  // let [details, setDetails] = useState([]);
   let countryData;
 
   const handleChange = (e) => {
@@ -48,6 +50,10 @@ function Main() {
       setIndex(index + 4);
     }
   };
+
+  // const handleClickForDetails = () => {
+  //   return setDetails(obj);
+  // };
 
   useEffect(() => {
     let link = region
@@ -80,8 +86,11 @@ function Main() {
     countryData = filteredByInputData.map((obj, i) => {
       if (i < index) {
         return (
-          <Col className="mb-3" md={4} lg={3} sm={6}>
-            <CountryCard key={i} data={obj} />
+          <Col key={i} className="mb-3" md={4} lg={3} sm={6}>
+            <CountryCard
+              handleClickForDetails={handleClickForDetails}
+              data={obj}
+            />
           </Col>
         );
       }
@@ -90,7 +99,7 @@ function Main() {
     countryData = data.map((obj, i) => {
       if (i < index) {
         return (
-          <Col className="mb-3 " md={4} lg={3} sm={6}>
+          <Col key={i} className="mb-3 " md={4} lg={3} sm={6}>
             <Animate
               play={data}
               duration={2}
@@ -99,7 +108,10 @@ function Main() {
               }}
               end={{ opacity: "1" }}
             >
-              <CountryCard key={i} data={obj} />
+              <CountryCard
+                handleClickForDetails={handleClickForDetails}
+                data={obj}
+              />
             </Animate>
           </Col>
         );
