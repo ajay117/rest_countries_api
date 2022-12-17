@@ -110,7 +110,7 @@ function Main() {
           <Select region={region} handleChange={handleChange} />
         </div>
       </Container>
-      <Container fluid>
+      <Container fluid className="mt-4">
         <Row>{countrydata}</Row>
 
         <div
