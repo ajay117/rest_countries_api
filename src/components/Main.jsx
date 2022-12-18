@@ -44,7 +44,7 @@ function Main({ handleClickForDetails }) {
   };
 
   const handleClick = () => {
-    if (index >= filteredByInputData.length) {
+    if (index >= (filteredByInputData ? filteredByInputData.length : 1)) {
       return;
     } else {
       setIndex(index + 4);
@@ -68,7 +68,7 @@ function Main({ handleClickForDetails }) {
             setFilteredByInputData(result);
           } else {
             setData(result);
-            // setFilteredByInputData(result);
+            setFilteredByInputData(result);
           }
         },
         (error) => {
