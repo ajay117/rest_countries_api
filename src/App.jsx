@@ -9,12 +9,15 @@ import { useState } from "react";
 function App() {
   let [details, setDetails] = useState([]);
   const handleClickForDetails = (obj) => {
-    return setDetails([obj]);
+    // return setDetails();
+    let newArr = [];
+    newArr.push(obj);
+    return setDetails(newArr);
   };
   return (
     <div>
       <Header />
-      {details.length !== 1 ? (
+      {details.length < 1 ? (
         <Main handleClickForDetails={handleClickForDetails} />
       ) : (
         <CountryDetails details={details} />
