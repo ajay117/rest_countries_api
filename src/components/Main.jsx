@@ -11,7 +11,7 @@ import { useState, useEffect } from "react";
 import { Animate } from "react-simple-animate";
 import CountryDetails from "./CountryDetails";
 
-function Main({handleClickForDetails}) {
+function Main({ handleClickForDetails }) {
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
   const [region, setRegion] = useState("");
@@ -138,9 +138,8 @@ function Main({handleClickForDetails}) {
             countryData
           )}
         </Row>
-        {countryData.length < 1 ||
-        index >=
-          (filteredByInputData ? filteredByInputData.length - 1 : 1) ? null : (
+
+        {countryData.length < 1 ? null : (
           <div
             className="d-grid gap-2 mx-auto mt-4"
             style={{ maxWidth: "1000px" }}
