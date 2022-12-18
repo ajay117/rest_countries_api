@@ -8,6 +8,15 @@ import { useState } from "react";
 
 function App() {
   let [details, setDetails] = useState([]);
+  let [darkMode, setDarkMode] = useState(false);
+
+  const handleDarkMode = () => {
+    if (darkMode === false) {
+      return setDarkMode(true);
+    }
+    setDarkMode(false);
+  };
+
   const handleClickForDetails = (obj) => {
     // return setDetails();
     let newArr = [];
@@ -15,8 +24,8 @@ function App() {
     return setDetails(newArr);
   };
   return (
-    <div>
-      <Header />
+    <div className={darkMode ? "dark" : "light"}>
+      <Header handleDarkMode={handleDarkMode} />
       {details.length < 1 ? (
         <Main handleClickForDetails={handleClickForDetails} />
       ) : (
