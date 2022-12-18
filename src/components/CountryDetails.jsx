@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import BackArrow from "../assets/arrow-left-thin.svg";
 
 function CountryDetails({ details }) {
   const obj = details[0];
@@ -7,7 +8,14 @@ function CountryDetails({ details }) {
   return (
     <main className="container fluid">
       <div className="my-5">
-        <button onClick={() => window.location.reload()}>Back</button>
+        <button
+          type="button"
+          className="d-flex align-items-center btn btn-outline-dark px-4"
+          onClick={() => window.location.reload()}
+        >
+          <img style={{ height: 53, width: 36 }} src={BackArrow} />
+          <span>Back</span>
+        </button>
       </div>
 
       {/* flag */}
