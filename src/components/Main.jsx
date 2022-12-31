@@ -10,8 +10,9 @@ import Col from "react-bootstrap/Col";
 import { useState, useEffect } from "react";
 import { Animate } from "react-simple-animate";
 import CountryDetails from "./CountryDetails";
+import TotalResult from "./TotalResult";
 
-function Main({ handleClickForDetails }) {
+function Main({ handleClickForDetails, darkMode }) {
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
   const [region, setRegion] = useState("");
@@ -139,19 +140,23 @@ function Main({ handleClickForDetails }) {
           )}
         </Row>
 
+        <TotalResult countryData={countryData} index={index} />
+
         {countryData.length < 1 ? null : (
           <div
             className="d-grid gap-2 mx-auto mt-4"
             style={{ maxWidth: "1000px" }}
           >
-            <Button onClick={handleClick} variant="primary" size="lg">
+            <Button
+              onClick={handleClick}
+              variant={darkMode ? "dark" : "primary"}
+              size="lg"
+            >
               See More
             </Button>
           </div>
         )}
       </Container>
-
-      {/* <button onClick={handleClick}>See More</button> */}
     </main>
   );
 }
