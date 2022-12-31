@@ -27,7 +27,7 @@ function App() {
     <div className={darkMode ? "dark" : "light"}>
       <Header handleDarkMode={handleDarkMode} />
       {details.length < 1 ? (
-        <Main handleClickForDetails={handleClickForDetails} />
+        <Main handleClickForDetails={handleClickForDetails} darkMode={darkMode} />
       ) : (
         <CountryDetails details={details} />
       )}
