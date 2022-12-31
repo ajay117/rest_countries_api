@@ -189,15 +189,20 @@ main {
 
     .card-body {
       background-color: hsl(209, 23%, 22%);
-
-      .card-title,
-      p {
-        color: hsl(0, 0%, 100%);
-      }
-
       .dark-btn {
         display: block;
       }
     }
+    .card-title,
+    p {
+      color: hsl(0, 0%, 100%);
+    }
+  }
+
+  .details-head {
+    color: hsl(0, 0%, 100%);
+  }
+  .details-back {
+    background-color: white;
   }
 }

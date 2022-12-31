@@ -10,7 +10,7 @@ function CountryDetails({ details }) {
       <div className="my-5">
         <button
           type="button"
-          className="d-flex align-items-center btn btn-outline-dark px-4"
+          className="details-back d-flex align-items-center btn btn-outline-dark px-4"
           onClick={() => window.location.reload()}
         >
           <img style={{ height: 53, width: 36 }} src={BackArrow} />
@@ -26,7 +26,7 @@ function CountryDetails({ details }) {
           alt={`Flag of ${obj.name.common}`}
         />
         <div className="col-lg-8">
-          <h1>{obj.name.common}</h1>
+          <h1 className="details-head">{obj.name.common}</h1>
           <div className="d-flex justify-content-between">
             <div>
               <p>
