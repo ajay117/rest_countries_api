@@ -149,7 +149,7 @@ function Main({ handleClickForDetails, darkMode }) {
           >
             <Button
               onClick={handleClick}
-              variant={darkMode ? "dark" : "primary"}
+              variant={darkMode ? "light" : "primary"}
               size="lg"
             >
               See More
