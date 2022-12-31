@@ -60,7 +60,8 @@ function CountryDetails({ details }) {
             </div>
           </div>
           <p>
-            <b>Border Countries:</b> {obj.borders.join(",")}
+            <b>Border Countries:</b>{" "}
+            {obj.borders ? obj.borders.join(",") : null}
           </p>
         </div>
       </div>
