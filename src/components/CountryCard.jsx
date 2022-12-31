@@ -9,7 +9,7 @@ function CountryCard({ handleClickForDetails, data }) {
       className="card px-0 mx-auto"
     >
       <Card.Img variant="top" src={data.flags.png} />
-      <Card.Body className="px-2 pt-2 pb-1">
+      <Card.Body className="px-2 py-2">
         <Card.Title className="card-title">{data.name.common}</Card.Title>
         <Card.Text className="card-text">
           <strong>Population</strong>: {data.population}

@@ -11,6 +11,11 @@
 //   font-size: clamp(1rem, 0.75rem + 1.5vw, 2rem);
 // }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   font-family: "Nunito Sans", sans-serif;
   margin: 0;
@@ -19,6 +24,12 @@ body {
 
 .flex {
   display: flex;
+}
+
+header,
+main,
+input {
+  transition: all 0.2s linear;
 }
 
 header {
@@ -32,13 +43,17 @@ header {
     height: 18px;
   }
 
+  .white-moon {
+    display: none;
+  }
+
   .tilt {
     transform: rotate(310deg);
   }
 
   h1 {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   div {
@@ -49,6 +64,7 @@ header {
 
 main {
   padding-top: 25px;
+  min-height: 100vh;
   .main_input,
   .main_select {
     padding: 10px;
@@ -62,9 +78,18 @@ main {
     margin-bottom: 25px;
   }
 
+  input {
+    color: hsl(0, 0%, 52%);
+    font-weight: 500;
+  }
+
   .main_input {
     width: 100%;
     max-width: 300px;
+  }
+
+  .dark-btn {
+    display: none;
   }
 
   .main_select {
@@ -89,6 +114,14 @@ main {
     .card-info {
       padding-left: 10px;
       padding-right: 10px;
+    }
+
+    .card-text {
+      letter-spacing: 0.5px;
+      font-weight: 100;
+      strong {
+        font-weight: 600;
+      }
     }
   }
 
@@ -132,6 +165,14 @@ main {
     border-bottom: none !important;
   }
 
+  .white-moon {
+    display: block;
+  }
+
+  .dark-moon {
+    display: none;
+  }
+
   input,
   select {
     color: hsl(0, 0%, 100%);
@@ -140,6 +181,7 @@ main {
 
   input {
     border-style: solid;
+    background-color: hsl(207, 26%, 17%);
   }
 
   main {
@@ -147,9 +189,14 @@ main {
 
     .card-body {
       background-color: hsl(209, 23%, 22%);
-      h5,
+
+      .card-title,
       p {
         color: hsl(0, 0%, 100%);
+      }
+
+      .dark-btn {
+        display: block;
       }
     }
   }
