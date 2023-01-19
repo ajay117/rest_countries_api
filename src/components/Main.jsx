@@ -2,7 +2,6 @@ import React from "react";
 import CountryCard from "./CountryCard";
 import Input from "./Input";
 import Select from "./Select";
-import data from "../../data";
 import Container from "react-bootstrap/Container";
 import { Button } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
