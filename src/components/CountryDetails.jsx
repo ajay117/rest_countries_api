@@ -30,8 +30,7 @@ function CountryDetails({ details }) {
           <div className="d-flex justify-content-between">
             <div>
               <p>
-                <b>Native Name:</b>{" "}
-                {Object.values(obj.name.nativeName).pop().common}
+                <b>Native Name:</b> {obj.name.common}
               </p>
               <p>
                 <b>Population</b>: {obj.population}
