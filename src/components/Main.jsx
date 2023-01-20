@@ -93,7 +93,9 @@ function Main({ handleClickForDetails, darkMode }) {
             } else {
               //Filter by name of country in input state...
               let country = result.filter((obj) => {
-                return obj.name.common.toLowerCase() === name.toLowerCase();
+                return obj.name.common
+                  .toLowerCase()
+                  .startsWith(name.toLowerCase());
               });
               console.log(country);
               setFilteredByInputData(country);
