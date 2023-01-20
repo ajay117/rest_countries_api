@@ -26,18 +26,41 @@ function Main({ handleClickForDetails, darkMode }) {
     if (e.target.name === "region") {
       setRegion(e.target.value);
 
-      setName("");
+      // let countryByRegion = data.map((obj) => {
+      //   return obj.region.toLowerCase() === region;
+      // });
+
+      // setFilteredByInputData(countryByRegion);
+
+      // setName("");
       // setFilteredByInputData([]);
     } else if (e.target.name === "country") {
       let filteredData;
-      filteredData = data.filter((obj) => {
-        return obj.name.common
-          .toLowerCase()
-          .startsWith(e.target.value.toLowerCase());
-      });
+      if (region) {
+        let countryByRegionData = data.filter((obj) => {
+          return obj.region.toLowerCase() === region;
+        });
+        // console.log(newData);
+        // setFilteredByInputData(newData);
 
-      setFilteredByInputData(filteredData);
-      setRegion("");
+        filteredData = countryByRegionData.filter((obj) => {
+          return obj.name.common
+            .toLowerCase()
+            .startsWith(e.target.value.toLowerCase());
+        });
+
+        setFilteredByInputData(filteredData);
+      } else {
+        filteredData = data.filter((obj) => {
+          return obj.name.common
+            .toLowerCase()
+            .startsWith(e.target.value.toLowerCase());
+        });
+
+        setFilteredByInputData(filteredData);
+      }
+
+      // setRegion("");
       setName(e.target.value);
     }
     setIndex(4);
@@ -65,7 +88,16 @@ function Main({ handleClickForDetails, darkMode }) {
         (result) => {
           setIsLoaded(true);
           if (region) {
-            setFilteredByInputData(result);
+            if (!name) {
+              setFilteredByInputData(result);
+            } else {
+              //Filter by name of country in input state...
+              let country = result.filter((obj) => {
+                return obj.name.common.toLowerCase() === name.toLowerCase();
+              });
+              console.log(country);
+              setFilteredByInputData(country);
+            }
           } else {
             setData(result);
             setFilteredByInputData(result);
@@ -131,7 +163,8 @@ function Main({ handleClickForDetails, darkMode }) {
           {countryData.length < 1 ? (
             <div className="alert alert-warning" role="alert">
               <p className="text-center">
-                Sorry! No country found. Please check your input.
+                Sorry! No country found. Please check your country name or
+                region.
               </p>
             </div>
           ) : (
