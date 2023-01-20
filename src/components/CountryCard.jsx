@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 function CountryCard({ handleClickForDetails, data }) {
   return (
     <Card
-      onClick={() => handleClickForDetails(data)}
+      onClick={() =>
+        data.capital
+          ? handleClickForDetails(data)
+          : alert("Sorry we do not have much info about this one")
+      }
       className="card px-0 mx-auto"
     >
       <Card.Img variant="top" src={data.flags.png} />
