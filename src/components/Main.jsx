@@ -23,25 +23,14 @@ function Main({ handleClickForDetails, darkMode }) {
   let countryData;
 
   const handleChange = (e) => {
+    let filteredData;
     if (e.target.name === "region") {
       setRegion(e.target.value);
-
-      // let countryByRegion = data.map((obj) => {
-      //   return obj.region.toLowerCase() === region;
-      // });
-
-      // setFilteredByInputData(countryByRegion);
-
-      // setName("");
-      // setFilteredByInputData([]);
     } else if (e.target.name === "country") {
-      let filteredData;
       if (region) {
         let countryByRegionData = data.filter((obj) => {
           return obj.region.toLowerCase() === region;
         });
-        // console.log(newData);
-        // setFilteredByInputData(newData);
 
         filteredData = countryByRegionData.filter((obj) => {
           return obj.name.common
@@ -60,10 +49,9 @@ function Main({ handleClickForDetails, darkMode }) {
         setFilteredByInputData(filteredData);
       }
 
-      // setRegion("");
       setName(e.target.value);
+      filteredData.length >= 4 ? setIndex(4) : setIndex(filteredData.length);
     }
-    setIndex(4);
   };
 
   const handleClick = () => {
@@ -97,12 +85,25 @@ function Main({ handleClickForDetails, darkMode }) {
                   .toLowerCase()
                   .startsWith(name.toLowerCase());
               });
-              console.log(country);
+
               setFilteredByInputData(country);
+              country.length >= 4 ? setIndex(4) : setIndex(country.length);
             }
           } else {
-            setData(result);
-            setFilteredByInputData(result);
+            if (!name) {
+              setData(result);
+              setFilteredByInputData(result);
+            } else {
+              //Filter by name of country in input state...
+              let country = result.filter((obj) => {
+                return obj.name.common
+                  .toLowerCase()
+                  .startsWith(name.toLowerCase());
+              });
+
+              setFilteredByInputData(country);
+              country.length >= 4 ? setIndex(4) : setIndex(country.length);
+            }
           }
         },
         (error) => {
