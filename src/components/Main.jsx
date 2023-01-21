@@ -58,7 +58,11 @@ function Main({ handleClickForDetails, darkMode }) {
     if (index >= (filteredByInputData ? filteredByInputData.length : 1)) {
       return;
     } else {
-      setIndex(index + 4);
+      if (index + 4 > filteredByInputData.length) {
+        setIndex(filteredByInputData.length);
+      } else {
+        setIndex(index + 4);
+      }
     }
   };
 
