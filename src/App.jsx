@@ -23,11 +23,15 @@ function App() {
     newArr.push(obj);
     return setDetails(newArr);
   };
+
   return (
     <div className={darkMode ? "dark" : "light"}>
       <Header handleDarkMode={handleDarkMode} />
       {details.length < 1 ? (
-        <Main handleClickForDetails={handleClickForDetails} darkMode={darkMode} />
+        <Main
+          handleClickForDetails={handleClickForDetails}
+          darkMode={darkMode}
+        />
       ) : (
         <CountryDetails details={details} />
       )}
