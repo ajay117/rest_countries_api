@@ -158,6 +158,7 @@ function Main({ handleClickForDetails, darkMode }) {
     });
   }
   return (
+    <>
     <main className="main">
       <Container fluid>
         <div className="flex input">
@@ -197,6 +198,14 @@ function Main({ handleClickForDetails, darkMode }) {
         )}
       </Container>
     </main>
+
+    <footer className="text-center text-secondary mt-3">
+      Copyright &copy; Ajay KC. All rights reserved.
+    </footer>
+
+    </>
+
+    
   );
 }
 
